@@ -2,17 +2,37 @@
 
 #include <iostream>
 #include "Worker.h"
+#include "List.h"
 
 using namespace std;
 
 int main(){
-	Worker wr1;
-	Worker wr2("Denisov A.S.", "dantist", 2003);
-	Worker wr3("Gavrilov A.P.", "dantist", 2012);
-	cin >> wr1;
-	cout << wr2;
-	cout << wr1;
-	wr1.setPost("therapist");
-	cout << wr1;
+	List wlist;
+	cout << "1 - Show list" << endl;
+	cout << "2 - Add worker" << endl;
+	cout << "3 - Find workers by work experience" << endl;
+	cout << "4 - Escape" << endl;
+	char mode;
+	while (true){
+
+		mode = getchar();
+		switch (mode){
+		case '1':
+			wlist.Sort();
+			cout << wlist << endl;
+			break;
+		case '2':
+			cin >> wlist;
+			break;
+		case '3':
+			cout << "Enter value" << endl;
+			int value;
+			cin >> value;
+			wlist.Find(value);
+			break;
+		case '4':
+			break;
+		}
+	}
 	return 0;
 }

@@ -18,8 +18,8 @@ public:
 	int getSize();
 	void setSize(int size);
 
-	friend istream& operator>>(istream &s, List &list);
-	//friend ostream& operator<<(ostream &s, const List &list);
+	friend istream& operator>>(istream &is, List &list);
+	friend ostream& operator<<(ostream &s, List &list);
 
 	void Sort();
 	void Find(int value);

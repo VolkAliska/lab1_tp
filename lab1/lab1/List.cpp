@@ -33,18 +33,38 @@ istream& operator>>(istream &s, List &list){
 	try {
 		list.size++;
 		list.workers = (Worker*)realloc(list.workers, (list.size)*sizeof(Worker));
+		//ломается
 		Worker wr;
 		cin >> wr;
-		list.workers[list.size - 1] = wr;
+		list.workers[list.size - 1].setName(wr.getName());
+		list.workers[list.size - 1].setPost(wr.getPost());
+		list.workers[list.size - 1].setYear(wr.getYear());
 	}
 	catch (exception e) {
 		printf_s("Cant add Student object to list");
 	}
+	return s;
+}
+
+ostream& operator<<(ostream &is, List &list){
+	try {
+		if (list.getSize() == 0){
+			cout << "Empty list" << endl;
+			return is;
+		}
+		for (int i = 0; i < list.getSize(); i++){
+			cout << list.workers[i] << endl;
+		}
+	}
+	catch (exception ex) {
+		printf_s("List is empty");
+	}
+	return is;
 }
 
 void List::Sort(){
 	for (int i = 0; i < this->size; i++){
-		for (int j = 0; j < this->getSize; j++){
+		for (int j = 0; j < this->size; j++){
 			if (this->workers[i].getName() > this->workers[j].getName()){
 				string buf = workers[i].getName();
 				workers[i].setName(workers[j].getName());

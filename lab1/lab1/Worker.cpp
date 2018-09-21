@@ -9,7 +9,7 @@ Worker::Worker(){
 	cout << "Object Worker: " << name << " was created by default constructor" << endl;
 }
 
-Worker::Worker(string name, string post, int year){
+Worker::Worker(string name, string post, double year){
 	this->name = name;
 	this->post = post;
 	this->year = year;
@@ -38,7 +38,7 @@ string Worker::getPost(){
 	return(post);
 }
 
-int Worker::getYear(){
+double Worker::getYear(){
 	return(year);
 }
 
@@ -50,17 +50,23 @@ void Worker::setPost(string post){
 	this->post = post;
 }
 
-void Worker::setYear(int year){
+void Worker::setYear(double year){
 	this->year = year;
 }
 
 istream& operator>>(istream &s, Worker& worker){
 	cout << "Enter name (Ex: Ivanov V.A.) " << endl;
+	s.clear();
+	s.sync();
 	getline(s, worker.name);
 	cout << "Enter post " << endl;
 	s >> worker.post;
 	cout << "Enter year of joining " << endl;
-	s >> worker.year;
+	double year = 0;
+	s.clear();
+	s.sync();
+	scanf_s("%d", &year);
+	worker.setYear(year);
 	return s;
 }
 

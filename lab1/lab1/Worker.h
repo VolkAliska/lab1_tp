@@ -13,20 +13,20 @@ class Worker{
 private:
 	string name;
 	string post;
-	int year;
+	double year;
 
 public:
 	Worker();
-	Worker(string name, string post, int year);
+	Worker(string name, string post, double year);
 	Worker(const Worker &worker);
 	~Worker();
 
 	string getName();
 	string getPost();
-	int getYear();
+	double getYear();
 	void setName(string name);
 	void setPost(string post);
-	void setYear(int year);
+	void setYear(double year);
 	
 	friend istream& operator>>(istream &s, Worker& worker);
 	friend ostream& operator<<(ostream &s,const Worker& worker);
