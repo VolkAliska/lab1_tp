@@ -8,6 +8,7 @@ using namespace std;
 int main(){
 	Worker wr1;
 	Worker wr2("Denisov A.S.", "dantist", 2003);
+	Worker wr3("Gavrilov A.P.", "dantist", 2012);
 	cin >> wr1;
 	cout << wr2;
 	cout << wr1;
