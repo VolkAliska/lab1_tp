@@ -18,9 +18,9 @@ public:
 	int getSize();
 	void setSize(int size);
 
-	friend istream& operator>>(istream &is, List &list);
+	//friend istream& operator>>(istream &is, List &list);
 	friend ostream& operator<<(ostream &s, List &list);
-
+	List& Add(Worker &wr);
 	void Sort();
 	void Find(int value);
 };

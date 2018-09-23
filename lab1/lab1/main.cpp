@@ -7,28 +7,31 @@
 using namespace std;
 
 int main(){
-	List wlist;
+	
 	cout << "1 - Show list" << endl;
 	cout << "2 - Add worker" << endl;
 	cout << "3 - Find workers by work experience" << endl;
 	cout << "4 - Escape" << endl;
 	char mode;
+	List *wlist = new List;
+	Worker *newwr = new Worker;
 	while (true){
 
 		mode = getchar();
 		switch (mode){
 		case '1':
-			wlist.Sort();
-			cout << wlist << endl;
+			wlist->Sort();
+			cout << *wlist << endl;
 			break;
 		case '2':
-			cin >> wlist;
+			cin >> *newwr;
+			wlist->Add(*newwr);
 			break;
 		case '3':
 			cout << "Enter value" << endl;
 			int value;
 			cin >> value;
-			wlist.Find(value);
+			wlist->Find(value);
 			break;
 		case '4':
 			break;

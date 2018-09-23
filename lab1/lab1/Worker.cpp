@@ -3,8 +3,8 @@
 #include "Worker.h"
 
 Worker::Worker(){
-	name = "noname";
-	post = "nopost";
+	name = "";
+	post = "";
 	year = 0;
 	cout << "Object Worker: " << name << " was created by default constructor" << endl;
 }

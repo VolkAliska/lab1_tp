@@ -29,21 +29,20 @@ void List::setSize(int size){
 	this->size = size;
 }
 
-istream& operator>>(istream &s, List &list){
+
+List& List::Add(Worker &wr){
 	try {
-		list.size++;
-		list.workers = (Worker*)realloc(list.workers, (list.size)*sizeof(Worker));
+		this->size++;
+		this->workers = (Worker*)realloc(this->workers, sizeof(Worker)*(this->size));
+		this->workers[size - 1].setYear(wr.getYear());
 		//ломается
-		Worker wr;
-		cin >> wr;
-		list.workers[list.size - 1].setName(wr.getName());
-		list.workers[list.size - 1].setPost(wr.getPost());
-		list.workers[list.size - 1].setYear(wr.getYear());
+		this->workers[size - 1].setName(wr.getName());
+		this->workers[size - 1].setPost(wr.getPost());
 	}
 	catch (exception e) {
 		printf_s("Cant add Student object to list");
 	}
-	return s;
+	return *this;
 }
 
 ostream& operator<<(ostream &is, List &list){
