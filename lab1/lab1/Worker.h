@@ -2,6 +2,7 @@
 
 #ifndef WORKER
 #define WORKER
+
 #include <iostream>
 #include <istream>
 #include <string>

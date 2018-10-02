@@ -8,30 +8,29 @@ using namespace std;
 
 int main(){
 	
-	cout << "1 - Show list" << endl;
-	cout << "2 - Add worker" << endl;
-	cout << "3 - Find workers by work experience" << endl;
-	cout << "4 - Escape" << endl;
 	char mode;
-	List *wlist = new List;
-	Worker *newwr = new Worker;
+	List *wlist = new List();
+	
 	while (true){
-
-		mode = getchar();
-		switch (mode){
+		cout << "1 - Show list" << endl;
+		cout << "2 - Add worker" << endl;
+		cout << "3 - Find workers by work experience" << endl;
+		cout << "4 - Escape" << endl;
+		cin >> mode;
+    	switch (mode){
 		case '1':
-			wlist->Sort();
-			cout << *wlist << endl;
+			wlist->sort();
+			wlist->print();
 			break;
 		case '2':
-			cin >> *newwr;
-			wlist->Add(*newwr);
+
+			wlist->add();
 			break;
 		case '3':
 			cout << "Enter value" << endl;
 			int value;
 			cin >> value;
-			wlist->Find(value);
+			wlist->find(value);
 			break;
 		case '4':
 			break;
