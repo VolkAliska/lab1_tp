@@ -3,43 +3,43 @@
 #include "Worker.h"
 
 Worker::Worker(){
-	name = "noname";
-	post = "nopost";
+	name = "";
+	post = "";
 	year = 0;
-	cout << "Object Worker: " << name << " was created by default constructor" << endl;
+	//cout << "Object Worker: " << name << " was created by default constructor" << endl;
 }
 
 Worker::Worker(string name, string post, double year){
 	this->name = name;
 	this->post = post;
 	this->year = year;
-	cout << "Object Worker: " << name << " was created by constructor with parameters" << endl;
+	//cout << "Object Worker: " << name << " was created by constructor with parameters" << endl;
 }
 
 Worker::Worker(const Worker &worker){
 	this->name = worker.name;
 	this->post = worker.post;
 	this->year = worker.year;
-	cout << "Object Worker: " << name << " was created by copy constructor" << endl;
+	//cout << "Object Worker: " << name << " was created by copy constructor" << endl;
 }
 
 Worker::~Worker(){
-	cout << "Delete object Worker: " << name << endl;
+	//cout << "Delete object Worker: " << name << endl;
 	this->name = "";
 	this->post = "";
 	this->year = 0;
 }
 
 string Worker::getName(){
-	return(name);
+	return this->name;
 }
 
 string Worker::getPost(){
-	return(post);
+	return this->post;
 }
 
 double Worker::getYear(){
-	return(year);
+	return this->year;
 }
 
 void Worker::setName(string name){
@@ -58,6 +58,7 @@ istream& operator>>(istream &s, Worker& worker){
 	cout << "Enter name (Ex: Ivanov V.A.) " << endl;
 	s.clear();
 	s.sync();
+	//cin >> worker.name;
 	getline(s, worker.name);
 	cout << "Enter post " << endl;
 	s >> worker.post;
@@ -65,7 +66,7 @@ istream& operator>>(istream &s, Worker& worker){
 	double year = 0;
 	s.clear();
 	s.sync();
-	scanf_s("%d", &year);
+	s >> year;
 	worker.setYear(year);
 	return s;
 }
