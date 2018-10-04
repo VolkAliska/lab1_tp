@@ -14,16 +14,12 @@ private:
 	int size;
 public:
 	List();
-	//List(int size);
-	//~List();
+	~List();
 	int getSize();
-	//void setSize(int size);
-
-	//friend istream& operator>>(istream &is, List &list);
-	//friend ostream& operator<<(ostream &s, List &list);
+	
 	void print();
 	void add();
-	void sort();
+	List& sort();
 	void find(int value);
 };
 

@@ -6,25 +6,25 @@ Worker::Worker(){
 	name = "";
 	post = "";
 	year = 0;
-	//cout << "Object Worker: " << name << " was created by default constructor" << endl;
+	cout << "Object Worker: " << name << " was created by default constructor" << endl;
 }
 
 Worker::Worker(string name, string post, double year){
 	this->name = name;
 	this->post = post;
 	this->year = year;
-	//cout << "Object Worker: " << name << " was created by constructor with parameters" << endl;
+	cout << "Object Worker: " << name << " was created by constructor with parameters" << endl;
 }
 
 Worker::Worker(const Worker &worker){
 	this->name = worker.name;
 	this->post = worker.post;
 	this->year = worker.year;
-	//cout << "Object Worker: " << name << " was created by copy constructor" << endl;
+	cout << "Object Worker: " << name << " was created by copy constructor" << endl;
 }
 
 Worker::~Worker(){
-	//cout << "Delete object Worker: " << name << endl;
+	cout << "Delete object Worker: " << name << endl;
 	this->name = "";
 	this->post = "";
 	this->year = 0;
@@ -58,7 +58,6 @@ istream& operator>>(istream &s, Worker& worker){
 	cout << "Enter name (Ex: Ivanov V.A.) " << endl;
 	s.clear();
 	s.sync();
-	//cin >> worker.name;
 	getline(s, worker.name);
 	cout << "Enter post " << endl;
 	s >> worker.post;
