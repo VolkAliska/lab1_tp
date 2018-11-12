@@ -10,6 +10,7 @@ int main(){
 	
 	char mode;
 	List *wlist = new List();
+	Worker *wr = new Worker();
 	int flagout = 0;
 	while (true){
 		if (flagout)
@@ -25,7 +26,8 @@ int main(){
 			wlist->print();
 			break;
 		case '2':
-			wlist->add();
+			cin >> *wr;
+			wlist->add(wr);
 			break;
 		case '3':
 			cout << "Enter value" << endl;
@@ -40,5 +42,6 @@ int main(){
 		}
 	}
 	delete wlist;
+	delete wr;
 	return 0;
 }

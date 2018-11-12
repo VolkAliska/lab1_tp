@@ -18,7 +18,7 @@ public:
 	int getSize();
 	
 	void print();
-	void add();
+	void add(Worker *wr);
 	List& sort();
 	void find(int value);
 };

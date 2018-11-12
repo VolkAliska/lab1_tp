@@ -1,4 +1,4 @@
-/*List.h*/
+/*List.cpp*/
 
 #include "List.h"
 #include "time.h"
@@ -18,9 +18,8 @@ int List::getSize(){
 	return this->size;
 }
 
-void List::add(){
-	Worker *wr = new Worker();
-	cin >> *wr;
+void List::add(Worker *wr){
+	
 	this->size++;
 	Worker **copy = new Worker*[this->size-1];
 	for (int i = 0; i < this->size-1; i++){
