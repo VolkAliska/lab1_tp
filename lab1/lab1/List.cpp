@@ -19,7 +19,7 @@ int List::getSize(){
 }
 
 void List::add(Worker *wr){
-	
+	Worker *buf = new Worker(*wr);
 	this->size++;
 	Worker **copy = new Worker*[this->size-1];
 	for (int i = 0; i < this->size-1; i++){
@@ -29,7 +29,7 @@ void List::add(Worker *wr){
 	for (int i = 0; i < this->size - 1; ++i) {
 		this->workers[i] = copy[i];
 	}
-	this->workers[this->size - 1] = wr;
+	this->workers[this->size - 1] = buf;
 	delete[]copy;
 }
  
@@ -56,7 +56,7 @@ List& List::sort(){
 	return *this;
 }
 
-void List::find(int value){
+List& List::find(int value, List *finded){
 	time_t t;
 	struct tm *current;
 	time(&t);
@@ -65,10 +65,12 @@ void List::find(int value){
 	int fl = 0;
 	for (int i = 0; i < this->size; i++){
 		if (curyear - (*this->workers[i]).getYear() > value){
-			cout << *workers[i] << endl << endl;
+			finded->add(workers[i]);
+			//cout << *workers[i] << endl << endl;
 			fl = 1;
 		}
 	}
 	if (fl == 0)
 		cout << "no workers with such work experience";
+	return *finded;
 }

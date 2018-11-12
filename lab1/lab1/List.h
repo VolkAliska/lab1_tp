@@ -20,7 +20,7 @@ public:
 	void print();
 	void add(Worker *wr);
 	List& sort();
-	void find(int value);
+	List& find(int value, List *finded);
 };
 
 #endif //LIST

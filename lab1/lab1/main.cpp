@@ -9,6 +9,7 @@ using namespace std;
 int main(){
 	
 	char mode;
+	List *finded = new List();
 	List *wlist = new List();
 	Worker *wr = new Worker();
 	int flagout = 0;
@@ -34,13 +35,15 @@ int main(){
 			int value;
 			cin >> value;
 			wlist->sort();
-			wlist->find(value);
+			*finded = wlist->find(value, finded);
+			finded->print();
 			break;
 		case '4':
 			flagout = 1;
 			break;
 		}
 	}
+	delete finded;
 	delete wlist;
 	delete wr;
 	return 0;
