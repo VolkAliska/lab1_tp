@@ -57,6 +57,11 @@ List& List::sort(){
 }
 
 List& List::find(int value, List *finded){
+	int size = finded->getSize();
+	for (int i = 0; i < size; i++){
+		delete finded->workers[i];
+		finded->size--;
+	}
 	time_t t;
 	struct tm *current;
 	time(&t);
